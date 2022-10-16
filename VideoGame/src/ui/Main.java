@@ -358,7 +358,7 @@ public class Main {
                 break; 
 
             case 11: 		
-                System.out.println("<< Total consonants in enemy names >>");
+                System.out.println("<< Total consonants on enemy names >>");
                 
                 String totalConsonants = game.showTotalConsonants();
                 System.out.println(totalConsonants);
