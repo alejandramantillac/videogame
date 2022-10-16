@@ -38,13 +38,13 @@ public class GameController {
     
     /**
      * validatePos validate if the variable entered is different to -1.
-     * @param var represents the variable that saves the integer value.
+     * @param variable represents the variable that saves the integer value.
      * @return isOk represents the result of the validation (true or false).
      */
-    public boolean validatePos(int var) {
+    public boolean validatePos(int variable) {
         boolean isOk = false;
         
-        if(var !=-1) {
+        if(variable !=-1) {
             isOk = true;
         }
         
@@ -59,7 +59,7 @@ public class GameController {
     public boolean validateLvl(int lvl) {
         boolean isOnRange = false;
         
-        if(lvl > 0 && lvl < 10 ) {
+        if(lvl >= 0 && lvl < 10 ) {
             isOnRange = true;
         }
         
@@ -501,25 +501,32 @@ public class GameController {
     /**
      * showEnemiesOnLevel show the enemies of a specific level.
      * @param teLevel represents the level to show enemies.
+     * @return enemiesOnLvl represents the enemies of a specific level.
      */
-    public void showEnemiesOnLevel(int teLevel) {
-        level.searchEnemiesLevel(teLevel);
+    public String showEnemiesOnLevel(int teLevel) {
+        String enemiesOnLvl = level.searchEnemiesLevel(teLevel);
+
+        return enemiesOnLvl;
     }
     
     /**
      * showTreasuresOnLevel show the treasures of a specific level.
      * @param teLevel represents the level to show treasures.
+     * @return treasuresOnLvl represents the treasures on the level.
      */
-    public void showTreasuresOnLevel(int teLevel) {
-        level.searchTreasuresLevel(teLevel);
+    public String showTreasuresOnLevel(int teLevel) {
+        String treasuresOnLvl = level.searchTreasuresLevel(teLevel);
+
+        return treasuresOnLvl;
     }
     
     /**
      * showTotalConsonants show the total consonants found on enemies names.
      * @return totalConsonants represents the total consonants found.
      */
-    public String showTotalConsonants() {
-        String totalConsonants = "Total consonants on enemies names: " + level.getTotalConsonants();
+    public int showTotalConsonants() {
+        int totalConsonants = level.getTotalConsonants();
+
         return totalConsonants;
     }
    
@@ -671,7 +678,7 @@ public class GameController {
      * @return mostRepeated represents the most repeated treasure.
      */
     public String showMostRepeatedTreasure() {
-        String mostRepeated = "The most repeated treasure is: " + level.getMostRepeatedTreasure();
+        String mostRepeated = level.getMostRepeatedTreasure();
         
         return mostRepeated;
     }

@@ -32,10 +32,6 @@ public class Level {
     private Treasure treasure;
 
     public Level() {
-        this.levelNum = levelNum;
-        this.levelScore = levelScore;
-        this.levelType = levelType;
-        this.levelNameType = levelNameType;
         
         enemies = new Enemy[TOTAL_ENEMIES_SIZE];
         treasures = new Treasure[TOTAL_TREASURES_SIZE];
@@ -312,9 +308,11 @@ public class Level {
     /**
      * searchEnemiesLevel Look for the enemies that are in a specific level.
      * @param teLevel represents the level where we want to look for enemies.
+     * @return enemiesOnLvl represents the enemies of a specific level.
      */
-    public void searchEnemiesLevel(int teLevel) {
+    public String searchEnemiesLevel(int teLevel) {
         boolean hasEnemy = false;
+        String enemiesOnLvl = "";
         int pos = 0;
 
         try {
@@ -323,12 +321,15 @@ public class Level {
 
                 if (hasEnemy == true) {
                     pos++;
-                    System.out.println(pos + ". Type: " + enemies[i].getEnemyNameType() + ". Id: " + enemies[i].getEnemyId());
+                    enemiesOnLvl = pos + ". Type: " + enemies[i].getEnemyNameType() + ". Id: " + enemies[i].getEnemyId();
+                    System.out.println(enemiesOnLvl);
                 }
             }
         } catch (NullPointerException e) {
             System.out.println("");
         }
+
+        return enemiesOnLvl;
     }
 
     /**
@@ -387,7 +388,7 @@ public class Level {
     public String infoEnemyHighestScore() {
     	int positionHighest = getPositionEnemyHighestScore();
 
-    	String msj_highest_enemy = "The enemy with highest score is a " + enemies[positionHighest].getEnemyNameType() + " on the level " + enemies[positionHighest].getEnemyLevel();
+    	String msj_highest_enemy = "The enemy with highest score is a " + enemies[positionHighest].getEnemyNameType() + " on the level " + enemies[positionHighest].getEnemyLevel() + ". Its score is: " + enemies[positionHighest].getEnemyScoreUp();
 
     	return msj_highest_enemy;
     }
@@ -640,10 +641,12 @@ public class Level {
     /**
      * searchTreasuresLevel Look for the treasures that are in a specific level.
      * @param teLevel represents the level where we want to look for treasures.
+     * @return treasuresOnLvl represents the treasures on the level.
      */
-    public void searchTreasuresLevel(int teLevel) {
+    public String searchTreasuresLevel(int teLevel) {
         boolean hasTreasure = false;
         int pos = 0;
+        String treasuresOnLvl = "";
 
         try {
             for (int i = 0; i < TOTAL_TREASURES_SIZE; i++) {
@@ -651,12 +654,15 @@ public class Level {
 
                 if (hasTreasure == true) {
                     pos++;
-                    System.out.println(pos + ". Type: " + treasures[i].getTreasureName());
+                    treasuresOnLvl = pos + ". Type: " + treasures[i].getTreasureName();
+                    System.out.println(treasuresOnLvl);
                 }
             }
         } catch (NullPointerException e) {
             System.out.println("");
         }
+
+        return treasuresOnLvl;
     }
 
     /**

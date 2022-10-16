@@ -209,6 +209,7 @@ public class Main {
 
                 System.out.println("Type the player nickname: ");
                 pSearch = scan.next();
+                pSearch = pSearch.toLowerCase();
 
                 int posSearch = game.searchPlayerById(pSearch);
                 System.out.println(posSearch);
@@ -238,6 +239,7 @@ public class Main {
 
                 System.out.println("Type the player nickname: ");
                 pSearchNick = scan.next();
+                pSearchNick = pSearchNick.toLowerCase();
 
                 posSearchNick = game.searchPlayerById(pSearchNick);
                 
@@ -282,6 +284,7 @@ public class Main {
                 System.out.println("<< Treasures and enemies >>");
                 
                 int teLevel = 0;
+                String enemiesOnLevel, treasuresOnLvl;
 
                 System.out.println("Type the level to search: ");
                 teLevel = validateIntegerOption();
@@ -295,10 +298,12 @@ public class Main {
                     
                     if (isValid) {
                         System.out.println("Enemies: ");
-                        game.showEnemiesOnLevel(teLevel);
+                        enemiesOnLevel = game.showEnemiesOnLevel(teLevel);
 
                         System.out.println("Treasures: ");
-                        game.showTreasuresOnLevel(teLevel);                           
+                        treasuresOnLvl = game.showTreasuresOnLevel(teLevel);                           
+                    } else {
+                        game.invalidLvl();
                     }                
                 }
 
@@ -336,8 +341,13 @@ public class Main {
                 isOk = game.validatePos(eTypeSearch);
                 
                 if(isOk) {
-                    countEnemies = game.showTotalAmountEnemies(eTypeSearch);
-                    System.out.println("Total enemies of type " + eTypeSearch + " at all levels: " + countEnemies);                    
+                    if (eTypeSearch > 0 && eTypeSearch < 5) {
+                        countEnemies = game.showTotalAmountEnemies(eTypeSearch);
+                        System.out.println("Total enemies of type " + eTypeSearch + " at all levels: " + countEnemies);                                            
+                    } else {
+                        System.out.println("You entered a value out of range. (1-4)");
+                    }
+ 
                 }
 			
                 break; 
@@ -345,7 +355,7 @@ public class Main {
             case 9: 
                 System.out.println("<< Most repeated treasure >>");
                 
-                String mostRepeated = game.showMostRepeatedTreasure();
+                String mostRepeated = "The most repeated treasure is: " + game.showMostRepeatedTreasure();
                 System.out.println(mostRepeated);
                 
                 break;
@@ -360,7 +370,7 @@ public class Main {
             case 11: 		
                 System.out.println("<< Total consonants on enemy names >>");
                 
-                String totalConsonants = game.showTotalConsonants();
+                String totalConsonants = "Total consonants on enemies names: " + game.showTotalConsonants();
                 System.out.println(totalConsonants);
                 break; 
 
