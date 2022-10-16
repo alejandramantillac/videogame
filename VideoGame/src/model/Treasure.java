@@ -1,39 +1,41 @@
+
 package model;
 
+/**
+ *
+ * @author Alejandra
+ */
 public class Treasure {
-
-	// Atributes
+    
+    private int treasureType;
+    private String treasureName;
+    private String treasureImage;
     private int treasureUnits;
+    private int treasureScore;
+    private int[] treasurePosX;
+    private int[] treasurePosY;
     private int treasureLevel;
-	private String treasureName;
-	private String treasureImage;
-	private int treasureScore;
-	private int[] treasurePositionX;
-    private int[] treasurePositionY;
 
-
-	// Relations
-
-	// Constructor
-	public Treasure(int treasureUnits, int treasureLevel, String treasureName, String treasureImage, int treasureScore, int [] treasurePositionX, int [] treasurePositionY) {
-        this.treasureUnits = treasureUnits;
-        this.treasureLevel = treasureLevel;
+    public Treasure(int treasureType, String treasureName, String treasureImage, int treasureUnits, int treasureScore, int[] treasurePosX, int[] treasurePosY, int treasureLevel) {
+        this.treasureType = treasureType;
         this.treasureName = treasureName;
         this.treasureImage = treasureImage;
+        this.treasureUnits = treasureUnits;
         this.treasureScore = treasureScore;
-        this.treasurePositionX = treasurePositionX;
-        this.treasurePositionY = treasurePositionY;
-
-	}
-
-	// Getters and Setters Methods
-    public int getTreasureLevel() {
-        return treasureLevel;
-    }
-
-    public void setTreasureLevel(int treasureLevel) {
+        this.treasurePosX = treasurePosX;
+        this.treasurePosY = treasurePosY;
         this.treasureLevel = treasureLevel;
     }
+
+
+    public int getTreasureType() {
+        return treasureType;
+    }
+
+    public void setTreasureType(int treasureType) {
+        this.treasureType = treasureType;
+    }
+
     public String getTreasureName() {
         return treasureName;
     }
@@ -50,30 +52,6 @@ public class Treasure {
         this.treasureImage = treasureImage;
     }
 
-    public int getTreasureScore() {
-        return treasureScore;
-    }
-
-    public void setTreasureScore(int treasureScore) {
-        this.treasureScore = treasureScore;
-    }
-
-    public int [] getTreasurePositionX() {
-        return treasurePositionX;
-    }
-
-    public void setTreasurePositionX(int [] treasurePositionX) {
-        this.treasurePositionX = treasurePositionX;
-    }
-    
-    public int [] getTreasurePositionY() {
-        return treasurePositionY;
-    }
-
-    public void setTreasurePositionY(int [] treasurePositionY) {
-        this.treasurePositionY = treasurePositionY;
-    }
-
     public int getTreasureUnits() {
         return treasureUnits;
     }
@@ -82,5 +60,42 @@ public class Treasure {
         this.treasureUnits = treasureUnits;
     }
 
-	// Methods
+    public int getTreasureScore() {
+        return treasureScore;
+    }
+
+    public void setTreasureScore(int treasureScore) {
+        this.treasureScore = treasureScore;
+    }
+
+    public int[] getTreasurePosX() {
+        return treasurePosX;
+    }
+
+    public void setTreasurePosX(int[] treasurePosX) {
+        this.treasurePosX = treasurePosX;
+    }
+
+    public int[] getTreasurePosY() {
+        return treasurePosY;
+    }
+
+    public void setTreasurePosY(int[] treasurePosY) {
+        this.treasurePosY = treasurePosY;
+    }
+
+    public int getTreasureLevel() {
+        return treasureLevel;
+    }
+
+    public void setTreasureLevel(int treasureLevel) {
+        this.treasureLevel = treasureLevel;
+    }
+
+    @Override
+    public String toString() {
+        return "Treasure{" + "treasureType=" + treasureType + ", treasureName=" + treasureName + ", treasureImage=" + treasureImage + ", treasureUnits=" + treasureUnits + ", treasureScore=" + treasureScore + ", treasurePosX=" + treasurePosX + ", treasurePosY=" + treasurePosY + ", treasureLevel=" + treasureLevel + '}';
+    }
+    
+    
 }
