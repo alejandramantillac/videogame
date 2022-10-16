@@ -585,7 +585,7 @@ public class Level {
 
     /**
     * getOptionTreasure get the option given by the user and sets the treasure name.
-    * @param tType represents the treasure chosen by the user.
+    * @param randomType represents the treasure chosen by the user.
     * @return treasureName represents the name of the treasure according to the previous selection.
     */
     public String getOptionTreasure(int randomType) {

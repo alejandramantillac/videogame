@@ -273,6 +273,7 @@ public class GameController {
      * setNewPlayerScore assign a new score to a specific player.
      * @param posSearch represents the player's position.
      * @param pNewScore represents the player's new score.
+     * @return msj_new_score represents the message that shows the players' new score.
      */
     public String setNewPlayerScore(int posSearch, int pNewScore) {
 
@@ -703,7 +704,6 @@ public class GameController {
     
     /**
      * getAndSetLevelTotalScore sets the total score of all levels (this is for randomly generated enemies and treasures).
-     * @param theLevel represents the level.
      */
     public void getAndSetAutoLvlTotalScore() {
         int scoreTotal;
